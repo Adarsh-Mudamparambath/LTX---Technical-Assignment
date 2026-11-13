@@ -4,6 +4,8 @@
 
 #include <QFile>
 
+#include <algorithm>
+
 using nlohmann::json;
 
 namespace geojson {
@@ -46,11 +48,20 @@ WriteResult write(const QString& path, const std::vector<FlightRecord>& records)
 {
     WriteResult result;
 
+    // Task-3 asks for the *sorted* data. Ordering is guaranteed here rather
+    // than depending on whether the user happened to press Sort first, which
+    // is also how BinaryWriter handles it.
+    std::vector<FlightRecord> ordered(records);
+    std::stable_sort(ordered.begin(), ordered.end(),
+                     [](const FlightRecord& a, const FlightRecord& b) {
+                         return a.time < b.time;
+                     });
+
     json features = json::array();
     json track    = json::array();
-    features.get_ref<json::array_t&>().reserve(records.size() + 1);
+    features.get_ref<json::array_t&>().reserve(ordered.size() + 1);
 
-    for (const FlightRecord& r : records) {
+    for (const FlightRecord& r : ordered) {
         // GeoJSON coordinate order is [longitude, latitude].
         json coords = json::array({r.longitude, r.latitude});
         track.push_back(coords);
@@ -66,7 +77,7 @@ WriteResult write(const QString& path, const std::vector<FlightRecord>& records)
         features.push_back(json{
             {"type", "Feature"},
             {"geometry", json{{"type", "LineString"}, {"coordinates", std::move(track)}}},
-            {"properties", json{{"name", "NZ5 trajectory"}, {"pointCount", records.size()}}},
+            {"properties", json{{"name", "NZ5 trajectory"}, {"pointCount", ordered.size()}}},
         });
     }
 
@@ -89,7 +100,7 @@ WriteResult write(const QString& path, const std::vector<FlightRecord>& records)
     file.close();
 
     result.ok           = true;
-    result.featureCount = static_cast<int>(records.size());
+    result.featureCount = static_cast<int>(ordered.size());
     return result;
 }
 

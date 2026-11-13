@@ -16,6 +16,21 @@ C++20 / Qt 6 / OpenGL application for the NZ5 flight-data assignment.
 | 7 | Trajectory as a connected yellow line | done |
 | 8 | Geodesic between first and last fix as a red line | done |
 
+## Getting the application
+
+**To just run it** — download `FlightViz-win64-portable.zip` from the
+[Releases](../../releases) page, unzip anywhere, and double-click
+`flightviz.exe`. Nothing to install: the Qt runtime, the flight data and the
+map tiles are all inside. See `RUN-ME.txt` in the zip for a short tour.
+
+Requires 64-bit Windows and a GPU supporting OpenGL 3.3.
+
+**To build it from source** — see [Build](#build) below. You will need Qt 6.5+,
+CMake and a C++20 compiler. This repository holds source only; build output is
+deliberately not committed.
+
+---
+
 **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** walks through the whole
 design: how the pieces fit, every decision that needed judgement, how each
 claim was verified, and a glossary of the domain concepts involved.

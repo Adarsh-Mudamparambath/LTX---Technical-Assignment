@@ -1,0 +1,30 @@
+# Build output. The build directory is kept outside the source tree because
+# MinGW's make hits Windows' 260-character path limit on long project paths.
+build/
+out/
+cmake-build-*/
+_deps/
+
+# The tile archive supplied with the assignment, ~90 MB.
+# GitHub warns above 50 MB and rejects above 100 MB, and this file ships with
+# the assignment itself, so it is not committed. Drop it in at:
+#     data/World_10M.mbtiles
+# CMake prints a warning and the app still starts (with empty map/globe panes)
+# if it is missing. To commit it anyway, delete the next line.
+data/World_10M.mbtiles
+
+# Generated outputs (Tasks 3 and 4) - produced by the app, not sources.
+*.geojson
+*.bin
+selftest.txt
+synctest.txt
+pane_*.png
+
+# Qt / editor / OS noise
+*.user
+*.pro.user*
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+aqtinstall.log

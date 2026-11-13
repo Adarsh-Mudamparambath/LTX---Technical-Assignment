@@ -13,12 +13,16 @@ _deps/
 # if it is missing. To commit it anyway, delete the next line.
 data/World_10M.mbtiles
 
-# Generated outputs (Tasks 3 and 4) - produced by the app, not sources.
+# Generated outputs are ignored where they land next to the build...
 *.geojson
 *.bin
 selftest.txt
 synctest.txt
 pane_*.png
+
+# ...but output/ is a deliverable. The assignment asks for the JSON, the
+# binary files and screenshots alongside the source, so that folder is kept.
+!output/**
 
 # Qt / editor / OS noise
 *.user

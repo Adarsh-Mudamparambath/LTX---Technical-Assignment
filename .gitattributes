@@ -1,2 +1,10 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Never let line-ending normalisation touch the binary deliverables. The two
+# Task-4 dumps must stay byte-exact at 3000 bytes; a stray CRLF rewrite would
+# silently corrupt the packed 15-byte records.
+*.bin        binary
+*.png        binary
+*.mbtiles    binary
+

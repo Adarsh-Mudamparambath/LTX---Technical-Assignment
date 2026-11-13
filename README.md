@@ -16,6 +16,20 @@ C++20 / Qt 6 / OpenGL application for the NZ5 flight-data assignment.
 | 7 | Trajectory as a connected yellow line | done |
 | 8 | Geodesic between first and last fix as a red line | done |
 
+## Deliverables
+
+`output/` holds the generated artifacts, produced by the committed source:
+
+| File | What it is |
+|---|---|
+| `flight.geojson` | Task-3 export — 470 Point features plus a LineString, ISO 8601 times |
+| `course_lt_220.bin` | Task-4, `Course < 220`, 200 records, exactly 3000 bytes |
+| `altitude_37900_38000.bin` | Task-4, `37900 < AltitudeFeet <= 38000`, 3000 bytes |
+| `app_window.png` | The running application — table, 2D map and 3D globe |
+| `pane_map2d.png` | The 2D map pane's own framebuffer |
+| `pane_globe.png` | The 3D globe pane's own framebuffer |
+| `selftest.txt` | `--selftest` report for Tasks 1–4, 7 and 8 |
+
 ## Before building
 
 `data/World_10M.mbtiles` (~90 MB) is **not committed** — it ships with the

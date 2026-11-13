@@ -1,0 +1,14 @@
+FlightViz self-test
+csv: C:\Users\adars\fvb2\NZ5_Flightdata.csv
+out: C:\Users\adars\fvb2\out
+
+[Task-1] OK   470 records, 0 skipped, 183 rows with NULL SpeedKts
+[Task-2] OK   first=10:34:03 last=22:39:24
+[Task-3] OK   470 features, 223263 bytes
+[Task-4] sizeof(OutputRecord)=15
+[Task-4] OK   course_lt_220.bin -> 200 records, 3000 bytes
+[Task-4] OK   altitude_37900_38000.bin -> 200 records, 3000 bytes
+[Task-7] OK   470 track points, 33.9354,-118.4232 -> -37.0119,174.7867
+[Task-8] OK   257 interpolated points, WGS84 geodesic 10466.401 km
+
+RESULT: PASS

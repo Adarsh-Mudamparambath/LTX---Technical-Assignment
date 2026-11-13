@@ -4,12 +4,10 @@
 #include "map/Mercator.h"
 
 #include <QColor>
-#include <QFile>
 #include <QMatrix4x4>
 #include <QMouseEvent>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLTexture>
-#include <QTextStream>
 #include <QVector3D>
 #include <QWheelEvent>
 

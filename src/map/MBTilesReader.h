@@ -29,7 +29,6 @@ public:
 
     bool    isOpen() const { return m_open; }
     QString errorString() const { return m_error; }
-    QString path() const { return m_path; }
 
     int minZoom() const { return m_minZoom; }
     int maxZoom() const { return m_maxZoom; }
@@ -49,7 +48,6 @@ public:
 private:
     QSqlDatabase            m_db;
     QString                 m_connectionName;
-    QString                 m_path;
     QString                 m_error;
     QHash<QString, QString> m_metadata;
     bool                    m_open    = false;

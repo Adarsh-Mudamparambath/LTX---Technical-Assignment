@@ -65,8 +65,7 @@ bool MBTilesReader::open(const QString& path)
     m_minZoom = zooms.value(0).toInt();
     m_maxZoom = zooms.value(1).toInt();
 
-    m_path  = path;
-    m_open  = true;
+    m_open = true;
     m_error.clear();
     return true;
 }

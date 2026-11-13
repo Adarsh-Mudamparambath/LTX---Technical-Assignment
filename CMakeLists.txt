@@ -46,6 +46,14 @@ qt_add_executable(flightviz
 
 target_include_directories(flightviz PRIVATE src)
 
+# Warnings are scoped to this target: the fetched dependencies build with
+# their own settings, and GeographicLib turns warnings into errors.
+if(MSVC)
+    target_compile_options(flightviz PRIVATE /W4)
+else()
+    target_compile_options(flightviz PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
 target_link_libraries(flightviz PRIVATE
     Qt6::Core
     Qt6::Gui

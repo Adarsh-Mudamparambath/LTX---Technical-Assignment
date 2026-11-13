@@ -16,6 +16,10 @@ C++20 / Qt 6 / OpenGL application for the NZ5 flight-data assignment.
 | 7 | Trajectory as a connected yellow line | done |
 | 8 | Geodesic between first and last fix as a red line | done |
 
+**[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** walks through the whole
+design: how the pieces fit, every decision that needed judgement, how each
+claim was verified, and a glossary of the domain concepts involved.
+
 ## Deliverables
 
 `output/` holds the generated artifacts, produced by the committed source:

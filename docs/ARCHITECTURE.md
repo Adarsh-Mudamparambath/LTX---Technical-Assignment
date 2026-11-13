@@ -222,10 +222,12 @@ float v    = 0.5 + log(tan(PI/4.0 + latR/2.0)) / (2.0*PI);
 That avoids a resampling pass entirely. The date line gets two coincident
 vertex columns (−180 and +180) so nothing interpolates across the seam.
 
-**Deviation to be aware of:** the assignment says "Create 2D and 3D OpenGL
-*windows*". These are two panes in one window, matching the mock-up drawn on
-the Instructions sheet. A strict reading of the text wants two top-level
-windows; that change is about twenty lines if asked for.
+**On the word "windows":** Task-5 says "Create 2D and 3D OpenGL windows", which
+could be read as two top-level windows. The mock-up on the Instructions sheet
+settles it — it draws a single outer window with the four buttons across the
+top and three panes side by side, labelled **Table View | 2D Map | 3D Globe**,
+with "Synchronized Views" arrows between the last two. That is exactly the
+layout implemented here, down to the button order. "Windows" means viewports.
 
 ### Task-6 — synchronised views
 
@@ -324,14 +326,13 @@ shared-state coincidence.
 
 ## 8. Known limitations
 
-1. **Two panes, not two windows** — see Task-5 above.
-2. **Line width** is requested as 2px via `glLineWidth`; core-profile drivers
+1. **Line width** is requested as 2px via `glLineWidth`; core-profile drivers
    are free to clamp that to 1px. Proper thick lines would mean expanding the
    strips into triangles.
-3. **`World_10M.mbtiles` is not in the repository** (~90 MB; GitHub warns above
+2. **`World_10M.mbtiles` is not in the repository** (~90 MB; GitHub warns above
    50 MB). It ships with the assignment. CMake warns if it is absent and the
    app still runs, with empty map and globe panes.
-4. **Build directory must be outside the source tree** — MinGW's `make` hits
+3. **Build directory must be outside the source tree** — MinGW's `make` hits
    Windows' 260-character path limit. Ninja plus a short build path is the
    supported combination.
 
